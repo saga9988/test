@@ -1,0 +1,38 @@
+<div class="row mt-5">
+    <div class="col-md-6">
+        <div class="card p-4">
+            <h2 class="mb-4">Task Details</h2>
+            <app-item-detail-form></app-item-detail-form>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card p-4">
+            <h2 class="mb-4">My To Do List</h2>
+            <div class="table-responsive">
+                <table class="table table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of toDoListService.list">
+                            <td>{{item.description}}</td>
+                            <td class="text-center">
+                                <div class="btn-group" role="group">
+                                    <button class="btn btn-danger btn-sm me-2" (click)="onDelete(item.id)">
+                                        Delete
+                                    </button>
+                                    <button class="btn btn-warning btn-sm" (click)="populateForm(item)">
+                                        Edit
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

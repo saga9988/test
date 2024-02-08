@@ -1,0 +1,14 @@
+<form #form="ngForm" (submit)="onSubmit(form)" [class.submitted]="toDoListService.formSubmitted" novalidate autocomplete="off">
+    <input type="hidden" name="id" [value]="toDoListService.formData.id" />
+    <div class="mb-3">
+        <label for="description">Description</label>
+        <input class="form-control form-control-lg" placeholder="Task Description" type="text" #description="ngModel" name="description"
+               [(ngModel)]="toDoListService.formData.description" id="description" required />
+    </div>
+
+    <div class="d-grid">
+        <button class="btn btn-lg btn-success" type="submit">
+            Save
+        </button>
+    </div>
+</form>
